@@ -1,0 +1,101 @@
+.mt-30 {
+  margin-top:30px;
+}
+
+.back-button {
+  top: 0;
+  left: 0;
+}
+
+.max-w-600 {
+  max-width: 600px;
+}
+
+.select2-dropdown--below {
+    top: -38px;
+  }
+  
+  .select-box {
+    width:300px;
+  }
+  
+  .select-box {
+    position:relatove;
+    display:block;
+  }
+  .select2-container--default .select2-selection--single {
+    background-color: #fff;
+      border: 0;
+      border-radius: 4px;
+      height: 36px;
+      line-height: 36px;
+  }
+  
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+        line-height: 34px;
+  }
+  
+  .select2-container--default .select2-selection--single .select2-selection__arrow {
+      top: 5px;
+  }
+  
+  .select2-container {
+        height: 38px;
+      border: solid 1px #ddd;
+  }
+  
+  #custom-select {
+    height:38px;
+    border: solid 1px #ddd;
+  }
+
+label{
+    color:#2F4EB4;
+}
+
+.site-bg {
+    background-color: #2F4EB4;
+}
+
+  .search-button {
+      padding:4px;
+      font-size: 17px;
+      width: 208px;
+  }
+
+  input[readonly] {
+    background-color: #fff !important;
+}
+
+.dateInfo > div {
+  padding:10px;
+}
+
+.dateInfo > div > span {
+  display:block;
+}
+
+.journeyItem {  
+  border: 1px solid #B4B4B4;
+  margin-bottom: 30px;
+}
+
+.journeyItem:hover {
+  transition: 250ms;
+  background-color: #f0f0f0;
+}
+
+.journeyItem .price {
+  top:0;
+  right: 0;
+  background-color: #D23B38;
+  font-size:14px;
+  border-radius: 4px;
+  color:#fff;
+  font-weight: bolder;
+  padding: 7px 8px;
+}
+
+.journeyItem {
+    display: none;
+}

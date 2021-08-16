@@ -1,0 +1,46 @@
+﻿@model BusJourneyDto
+
+<header class="site-bg p-3">
+    <div class="text-white text-center max-w-600 mx-auto position-relative">
+        @TempData["JourneyInfo"]
+        <span class="d-block mt-1">
+            @TempData["Date"]
+        </span>
+        <a class="position-absolute back-button" asp-action="Index">
+            <i class="text-white fas fa-arrow-left"></i>
+        </a>
+    </div>
+</header>
+<div class="container mt-3">
+    <div class="searchResults">
+        @if (Model.Data.Any())
+        {
+            foreach (var item in Model.Data.OrderBy(o => o.Journey.Departure.Hour))
+            {
+                <div class="journeyItem max-w-600 mx-auto position-relative">
+                    <div class="dateInfo d-flex">
+                        <div class="p-3">Kalkış <span>@item.Journey.Departure.DateTime.ToShortTimeString()</span></div>
+                        <i class="mt-30 fas fa-arrow-right"></i>
+                        <div class="p-3">Varış <span>@item.Journey.Arrival.DateTime.ToShortTimeString()</span></div>
+                    </div>
+                    <div class="p-3 textInfo">
+                        @item.Journey.Origin - @item.Journey.Destination
+                    </div>
+                    <div class="m-2 price position-absolute">
+                        @item.Journey.InternetPrice.ToString("N") @item.Journey.Currency
+                    </div>
+                </div>
+            }
+
+            <div class="text-center mt-4 mb-3">
+                <button type="button" id="loadMore" class="btn btn-outline-primary">Daha Fazla Yükle</button>
+            </div>
+        }
+        else
+        {
+            <div class="text-center mt-4">
+                <span class="badge bg-secondary">Sonuç bulunamadı.</span>
+            </div>
+        }
+    </div>
+</div>

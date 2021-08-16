@@ -1,0 +1,72 @@
+﻿@model IndexViewModel
+
+@{
+    var Locations = Model.BusLocationDto.Data;
+}
+
+<header class="h3 p-3 site-bg text-white text-center">obilet</header>
+<div class="container max-w-600 mt-3">
+    <form asp-controller="Home" asp-action="Search" method="post">
+        <div class="form-group">
+            <label for="from">Nereden</label>
+            <select class="select-state" id="from" name="from">
+                @if (Locations.Any())
+                {
+                    foreach (var item in Locations)
+                    {
+                        <!option data-rank="@item.Rank" value="@item.Id,@item.Name" @(item.Rank == Api.OriginDefault ? "selected" : "")>@item.Name</!option>
+                    }
+                }
+            </select>
+        </div>
+        <i id="swapLocations" role="button" class="fas fa-exchange-alt mb-2 mt-3"></i>
+        <div class="form-group mt-2">
+            <label for="to">Nereye</label>
+            <select class="select-state" id="to" name="to">
+                @if (Locations.Any())
+                {
+                    foreach (var item in Locations)
+                    {
+                        <!option data-rank="@item.Rank" value="@item.Id,@item.Name" @(item.Rank == Api.DestinationDefault ? "selected" : "")>@item.Name</!option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-group mt-4">
+            <label for="date-picker">Tarih</label>
+            <input type="text" name="date" id="date-picker" class="form-control" readonly="readonly">
+            <div class="datebuttons mt-2">
+                <button type="button" id="getToday" class="btn btn-outline-primary">Bugün</button>
+                <button type="button" id="getTomorrow" class="btn btn-outline-primary">Yarın</button>
+            </div>
+        </div>
+        <div class="form-group text-center mt-4">
+            <button type="submit" class="btn btn-primary search-button site-bg">Bileti Bul</button>
+        </div>
+    </form>
+    
+    @if (Model.Errors.Any())
+    {
+        <div class="errors mt-3"></div>
+        foreach (var item in Model.Errors)
+        {
+            <div class="badge bg-danger text-wrap text-white mt-1">@item</div>
+        }
+    }
+
+    <div class="mt-5 fs-6">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+        dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+        lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit
+        esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
+        dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum
+        dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+        aliquam erat volutpat.
+    </div>
+</div>
+
+@section Javascript
+{
+    <script src="~/assets/lib/jquery/jquery.validate.min.js"></script>
+    <script src="~/assets/lib/jquery/jquery.validate.unobtrusive.min.js"></script>
+}
